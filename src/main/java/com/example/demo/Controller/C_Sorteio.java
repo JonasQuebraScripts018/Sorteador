@@ -23,7 +23,7 @@ public class C_Sorteio {
                              @RequestParam("numeroMaximo") int numeroMaximo,
                              Model model){
         M_Sorteio m_sorteio = S_Sorteio.Sorteador(quantosNumeros,numeroMinimo,numeroMaximo);
-        model.addAttribute("Sorteios", m_sorteio.getNumeros());
+        model.addAttribute("quantosNumeros", m_sorteio.getQuantosNumeros());
         model.addAttribute("Minimo", m_sorteio.getNumeroMinimo());
         model.addAttribute("Maximo", m_sorteio.getNumeroMaximo());
         model.addAttribute("Resultados", m_sorteio.getResultados());

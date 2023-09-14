@@ -1,23 +1,48 @@
-            function ajax(){
-                $.ajax({
-                    type: "POST",
-                    url: "/sorteia",
-                    data:{
-                        quantosNumeros:quantosNumeros,
-                        numeroMinimo:numeroMinimo,
-                        numeroMaximo:numeroMaximo,
-                    },
-                    success: function(data){
-                        $("#errorMessage").text("");
-                        if(data.status){
-                            window.location.href="/";
+                $("#enviar").click(validaEnvio);
+
+                    function validaCampoVazio(campo){
+                        if(campo.trim() == ''){
+                            return true;
                         }else{
-                            showToast(data);
+                            return false;
+                        }
+                    }
+
+                    function validaEnvio(){
+                        let podeEnviar = true;
+                        let quantosNumeros = $("#quantosNumeros").val();
+                        let numeroMaximo = $("#numeroMaximo").val();
+                        let numeroMinimo = $("#numeroMinimo").val();
+
+                        if(validaCampoVazio(quantosNumeros)){
+                            podeEnviar = false;
+                        }
+                        if(validaCampoVazio(numeroMaximo)){
+                            podeEnviar = false;
+                        }
+                        if(validaCampoVazio(numeroMinimo)){
+                            podeEnviar = false;
                         }
 
-                    },
-                    error: function(){
-                        $("#errorMessage").append("Ops! Ocorreu um erro inesperado.");
+                        if(podeEnviar){
+                           $.ajax({
+                                type: "POST",
+                                url: "/",
+                                    data:{
+                                        quantosNumeros:quantosNumeros,
+                                        numeroMinimo:numeroMinimo,
+                                        numeroMaximo:numeroMaximo,
+                                    },
+                                        success: function(data){
+                                              $("#errorMessage").text("");
+                                                   if(data.status){
+                                                       window.location.href="/";
+                                                   }else{
+                                                   }
+                                               },
+                                               error: function(){
+                                                   $("#errorMessage").append("Ops! Ocorreu um erro inesperado.");
+                                               }
+                           });
+                        }
                     }
-                });
-            }

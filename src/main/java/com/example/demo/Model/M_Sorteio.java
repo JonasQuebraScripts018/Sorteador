@@ -1,22 +1,22 @@
 package com.example.demo.Model;
 
 public class M_Sorteio {
-    private int numeros;
+    private int quantosNumeros;
     private int numeroMaximo;
     private int numeroMinimo;
     private int[] resultados;
 
-    public M_Sorteio(int numeros, int[] resultados) {
-        this.numeros = numeros;
+    public M_Sorteio(int quantosNumeros, int[] resultados) {
+        this.quantosNumeros = quantosNumeros;
         this.resultados = resultados;
     }
 
-    public int getNumeros() {
-        return numeros;
+    public int getQuantosNumeros() {
+        return quantosNumeros;
     }
 
-    public void setNumeros(int numeros) {
-        this.numeros = numeros;
+    public void setQuantosNumeros(int quantosNumeros) {
+        this.quantosNumeros = quantosNumeros;
     }
 
     public int getNumeroMaximo() {
