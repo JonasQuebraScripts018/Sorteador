@@ -36,8 +36,8 @@
         </div>
     </div>
     <div class="row mt-5">
-        <div class="col-sm-6 text-center">
-            <table class="table table-bordered">
+        <div class="col-sm-6 text-center" th:if="${Resultados}">
+            <table id="data-table" class="table table-bordered">
                 <thead>
                 <tr>
                     <th scope="col">Numero</th>
@@ -45,9 +45,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="quantosNumeros, cont :${resultados}">
+                <tr th:each="quantosNumeros, cont : ${Resultados}">
                     <td th:text="${cont.index + 1}"></td>
-                    <td th:text="${resultados}"></td>
+                    <td th:text="${quantosNumeros}"></td>
                 </tr>
                 </tbody>
             </table>

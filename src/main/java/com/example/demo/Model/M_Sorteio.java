@@ -6,9 +6,11 @@ public class M_Sorteio {
     private int numeroMinimo;
     private int[] resultados;
 
-    public M_Sorteio(int quantosNumeros, int[] resultados) {
+    public M_Sorteio(int quantosNumeros, int[] resultados, int numeroMinimo, int numeroMaximo) {
         this.quantosNumeros = quantosNumeros;
         this.resultados = resultados;
+        this.numeroMinimo = numeroMinimo;
+        this.numeroMaximo = numeroMaximo;
     }
 
     public int getQuantosNumeros() {

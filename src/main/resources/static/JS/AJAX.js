@@ -28,21 +28,17 @@
                            $.ajax({
                                 type: "POST",
                                 url: "/",
-                                    data:{
-                                        quantosNumeros:quantosNumeros,
-                                        numeroMinimo:numeroMinimo,
-                                        numeroMaximo:numeroMaximo,
-                                    },
-                                        success: function(data){
-                                              $("#errorMessage").text("");
-                                                   if(data.status){
-                                                       window.location.href="/";
-                                                   }else{
-                                                   }
-                                               },
-                                               error: function(){
-                                                   $("#errorMessage").append("Ops! Ocorreu um erro inesperado.");
-                                               }
+                                data:{
+                                    quantosNumeros:quantosNumeros,
+                                    numeroMinimo:numeroMinimo,
+                                    numeroMaximo:numeroMaximo,
+                                },
+                                success: function(data){
+                                    $('html').html(data);
+                                     $("#enviar").click(validaEnvio);
+                                },
+                                error: function (){
+                                },
                            });
                         }
                     }
